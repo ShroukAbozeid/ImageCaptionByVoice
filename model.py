@@ -1,4 +1,6 @@
 import tensorflow as tf
+from tensorflow.contrib.slim.python.slim.nets.inception_v3 import inception_v3_base
+slim = tf.contrib.slim
 
 
 class model(object):
@@ -114,3 +116,78 @@ class model(object):
         image = tf.multiply(image, 2.0)
         return image
 
+    def build_image_embeddings(self):
+        trainable = self.mode == "train"
+
+        is_inception_model_training = \
+            self.train_inception and trainable
+
+        # Default parameters for batch normalization.
+        batch_norm_params = {
+            "is_training": is_inception_model_training,
+            "trainable": trainable,
+            # Decay for the moving averages.
+            "decay": 0.9997,
+            # Epsilon to prevent 0s in variance.
+            "epsilon": 0.001,
+            # Collection containing the moving mean and moving variance.
+            "variables_collections": {
+                "beta": None,
+                "gamma": None,
+                "moving_mean": ["moving_vars"],
+                "moving_variance": ["moving_vars"],
+            }
+        }
+
+        if trainable:
+            weights_regularizer = tf.contrib.layers.l2_regularizer(0.00004)
+        else:
+            weights_regularizer = None
+
+        with tf.variable_scope("InceptionV3", [self.images]) as scope:
+            with slim.arg_scope(
+                    [slim.conv2d, slim.fully_connected],
+                    weights_regularizer=weights_regularizer,
+                    trainable=trainable
+            ):
+                with slim.arg_scope(
+                        [slim.conv2d],
+                        weights_initializer=tf.truncated_normal_initializer(stddev=0.1),
+                        activation_fn=tf.nn.relu,
+                        normalizer_fn=slim.batch_norm,
+                        normalizer_params=batch_norm_params
+                ):
+                    net, end_points = inception_v3_base(self.images, scope=scope)
+                    with tf.variable_scope("logits"):
+                        shape = net.get_shape()
+                        net = slim.avg_pool2d(net, shape[1:3], padding="VALID", scope="pool")
+                        net = slim.dropout(
+                            net,
+                            keep_prob=0.8,
+                            is_training=is_inception_model_training,
+                            scope="dropout"
+                        )
+                        net = slim.flatten(net, scope="flatten")
+
+        # Add summaries (????)
+        for v in end_points.values():
+            tf.contrib.layers.summaries.summarize_activation(v)
+
+        # ???
+        self.inception_variables = tf.get_collection(
+            tf.GraphKeys.GLOBAL_VARIABLES, scope="InceptionV3")
+
+        # map inception output into embedding space
+        with tf.variable_scope("image_embedding") as scope:
+            image_embeddings = tf.contrib.layers.fully_connected(
+            inputs=net,
+            num_outputs=self.config.embedding_size,
+            activation_fn=None,
+            weights_initializer=self.initializer,
+            biases_initializer=None,
+            scope=scope)
+
+        # Save the embedding size in the graph.
+        tf.constant(self.config.embedding_size, name="embedding_size")
+
+        self.image_embeddings = image_embeddings
