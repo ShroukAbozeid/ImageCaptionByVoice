@@ -191,3 +191,128 @@ class model(object):
         tf.constant(self.config.embedding_size, name="embedding_size")
 
         self.image_embeddings = image_embeddings
+
+    def build_seq_embedding(self):
+        with tf.variable_scope("seq_embedding"), tf.device("/cpu:0"):
+            embedding_map = tf.get_variable(
+                name="map",
+                shape=[self.config.vocab_size, self.config.embedding_size],
+                initializer=self.initializer)
+            seq_embeddings = tf.nn.embedding_lookup(embedding_map, self.input_seqs)
+
+            self.seq_embeddings = seq_embeddings
+
+    def build_model(self):
+        # Create cell
+        if self.rnn_type == "lstm":
+            cell = tf.contrib.rnn.BasicLSTMCell(
+                num_units=self.config.num_rnn_units, state_is_tuple=True)
+        else:
+            cell = tf.contrib.rnn.GRUCell(num_units=self.config.num_rnn_units)
+
+        # Dropout
+        if self.mode == "train":
+            cell = tf.contrib.rnn.DropoutWrapper(
+                cell,
+                input_keep_prob=self.config.rnn_dropout_keep_prob,
+                output_keep_prob=self.config.rnn_dropout_keep_prob)
+
+        # Feed the image embeddings to set the initial state.
+        with tf.variable_scope("rnn", initializer=self.initializer) as rnn_scope:
+            zero_state = cell.zero_state(
+                batch_size=self.image_embeddings.get_shape()[0], dtype=tf.float32)
+            _, initial_state = cell(self.image_embeddings, zero_state)
+            rnn_scope.reuse_variables()
+
+            # Run rnn
+            if self.mode == "train" or self.mode == "eval":
+                sequence_length = tf.reduce_sum(self.input_mask, 1)
+                rnn_outputs = tf.nn.dynamic_rnn(cell=cell,
+                                                inputs=self.seq_embeddings,
+                                                sequence_length=sequence_length,
+                                                initial_state=initial_state,
+                                                dtype=tf.float32,
+                                                scope=rnn_scope)
+            else:
+                tf.concat(axis=1, values=initial_state, name="initial_state")
+                if self.rnn_type == "lstm":
+                    state_feed = tf.placeholder(dtype=tf.float32,
+                                                shape=[None, sum(cell.state_size)],
+                                                name="state_feed")
+                    state_tuple = tf.split(value=state_feed,num_or_size_splits=2, axis=1)
+                else:
+                    state_feed = tf.placeholder(dtype=tf.float32,
+                                                shape=[None, cell.state_size],
+                                                name="state_feed")
+                    state_tuple = state_feed
+
+                # Run a single step.
+                rnn_outputs, state_tuple = cell(
+                    inputs=tf.squeeze(self.seq_embeddings, axis=[1]),
+                    state=state_tuple)
+
+                # Concatenate the resulting state h,c in case of lstm
+                # [Todo] change to be on condition edit the call in inference step state in gru
+                tf.concat(axis=1, values=state_tuple, name="state")
+
+        # Stack batches vertically.
+        rnn_outputs = tf.reshape(rnn_outputs, [-1, cell.output_size])
+
+        with tf.variable_scope("logits") as logits_scope:
+            logits = tf.contrib.layers.fully_connected(
+                inputs=rnn_outputs,
+                num_outputs=self.config.vocab_size,
+                activation_fn=None,
+                weights_initializer=self.initializer,
+                scope=logits_scope)
+
+        if self.mode == "inference":
+            tf.nn.softmax(logits, name="softmax")
+        else:
+            targets = tf.reshape(self.target_seqs, [-1])
+            masks = tf.reshape(self.input_mask, [-1])
+            weights = tf.to_float(masks)
+
+            # Compute losses
+            losses = tf.nn.sparse_softmax_cross_entropy_with_logits(labels=targets,
+                                                                    logits=logits)
+
+            batch_loss = tf.div(tf.reduce_sum(tf.multiply(losses, weights)),
+                                tf.reduce_sum(weights),
+                                name="batch_loss")
+            tf.losses.add_loss(batch_loss)
+            total_loss = tf.losses.get_total_loss()
+            #[Todo] add summaries
+
+            self.total_loss = total_loss
+            self.target_cross_entropy_losses = losses  # Used in evaluation.
+            self.target_cross_entropy_loss_weights = weights  # Used in evaluation.
+
+    def setup_global_step(self):
+        """Sets up the global step Tensor."""
+        global_step = tf.Variable(
+            initial_value=0,
+            name="global_step",
+            trainable=False,
+            collections=[tf.GraphKeys.GLOBAL_STEP, tf.GraphKeys.GLOBAL_VARIABLES])
+
+        self.global_step = global_step
+
+    def setup_inception_initializer(self):
+        """Sets up the function to restore inception variables from checkpoint."""
+        if self.mode != "inference":
+            # Restore inception variables only.
+            saver = tf.train.Saver(self.inception_variables)
+
+            def restore_fn(sess):
+                tf.logging.info("Restoring Inception variables from checkpoint file %s",
+                                self.config.inception_checkpoint_file)
+                saver.restore(sess, self.config.inception_checkpoint_file)
+
+            self.init_fn = restore_fn
+
+    def build(self):
+        self.build_inputs()
+        self.build_image_embeddings()
+        self.build_seq_embedding()
+        self.build_model()
