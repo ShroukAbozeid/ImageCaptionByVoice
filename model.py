@@ -2,6 +2,8 @@ import tensorflow as tf
 from tensorflow.contrib.slim.python.slim.nets.inception_v3 import inception_v3_base
 slim = tf.contrib.slim
 
+import prepare_data
+
 
 class model(object):
     """
@@ -192,6 +194,53 @@ class model(object):
 
         self.image_embeddings = image_embeddings
 
+    def build_inputs(self):
+        """Input prefetching, preprocessing and batching.
+
+           Outputs:
+             self.images
+             self.input_seqs
+             self.target_seqs (training and eval only)
+             self.input_mask (training and eval only)
+        """
+        if self.mode == "inference":
+            image_feed = tf.placeholder(dtype=tf.string, shape=[], name="image_feed")
+            input_feed = tf.placeholder(dtype=tf.int64,
+                                        shape=[None],  # batch_size
+                                        name="input_feed")
+
+            # Process image and insert batch dimensions.
+            image = self.process_image(image_feed)
+            images = tf.expand_dims(image, 0)
+
+            # No target sequences or input mask in inference mode.
+            input_seqs = tf.expand_dims(input_feed, 1)
+            target_seqs = None
+            input_mask = None
+        else:
+            queue = prepare_data.read_data(
+                self.reader,
+                self.config.input_file_pattern,
+                True,
+                self.config.batch_size)
+            data = []
+            seq_example = queue.dequeue()
+            encoded_img, caption = prepare_data.parse_sequence_example(seq_example)
+            image = self.process_image(encoded_img)
+            data.append([image, caption])
+
+            queue_capacity = 2 * self.config.batch_size
+
+            images, input_seqs, target_seqs, input_mask = (
+                prepare_data.prepare_batch(data=data,
+                                           batch_size=self.config.batch_size,
+                                           queue_capacity=queue_capacity))
+        self.images = images
+        self.input_seqs = input_seqs
+        self.target_seqs = target_seqs
+        self.input_mask = input_mask
+
+
     def build_seq_embedding(self):
         with tf.variable_scope("seq_embedding"), tf.device("/cpu:0"):
             embedding_map = tf.get_variable(
@@ -315,4 +364,6 @@ class model(object):
         self.build_inputs()
         self.build_image_embeddings()
         self.build_seq_embedding()
+        self.setup_global_step()
+        self.setup_inception_initializer()
         self.build_model()
