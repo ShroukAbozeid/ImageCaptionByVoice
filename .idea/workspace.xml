@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68be7b4b-5f8c-4152-90db-f6f9c5651c69" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" afterPath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="68be7b4b-5f8c-4152-90db-f6f9c5651c69" name="Default" comment="Fix train and add script for proccesing data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/model.py" afterPath="$PROJECT_DIR$/model.py" />
+      <change beforePath="$PROJECT_DIR$/img2txt.py" afterPath="$PROJECT_DIR$/img2txt.py" />
       <change beforePath="$PROJECT_DIR$/prepare_data.py" afterPath="$PROJECT_DIR$/prepare_data.py" />
+      <change beforePath="$PROJECT_DIR$/train.py" afterPath="$PROJECT_DIR$/train.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,33 +15,89 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="prepare_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/prepare_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="1394">
+              <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/model.py">
+      <file leaf-file-name="img2txt.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/img2txt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="365" column="26" lean-forward="true" selection-start-line="365" selection-start-column="26" selection-end-line="365" selection-end-column="26" />
+            <state relative-caret-position="211">
+              <caret line="95" column="53" lean-forward="false" selection-start-line="95" selection-start-column="53" selection-end-line="95" selection-end-column="53" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
                 <element signature="e#299#2167#0" expanded="false" />
-                <element signature="e#2221#4220#0" expanded="false" />
-                <element signature="e#4258#6054#0" expanded="false" />
-                <element signature="e#6102#9066#0" expanded="false" />
-                <element signature="e#9111#9501#0" expanded="false" />
-                <element signature="e#9538#13579#0" expanded="false" />
-                <element signature="e#13622#13907#0" expanded="false" />
-                <element signature="e#13960#14489#0" expanded="false" />
+                <element signature="e#4270#6066#0" expanded="false" />
+                <element signature="e#6114#9078#0" expanded="false" />
+                <element signature="e#9123#9513#0" expanded="false" />
+                <element signature="e#11083#12205#0" expanded="false" />
+                <element signature="e#13652#13937#0" expanded="false" />
+                <element signature="e#13990#14519#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build_mscoco_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#2287#1" expanded="false" />
+                <element signature="e#4578#5023#0" expanded="false" />
+                <element signature="e#5056#5648#0" expanded="false" />
+                <element signature="e#5453#5648#0" expanded="false" />
+                <element signature="e#5680#5826#0" expanded="false" />
+                <element signature="e#5858#6148#0" expanded="false" />
+                <element signature="e#6187#6340#0" expanded="false" />
+                <element signature="e#6584#7654#0" expanded="false" />
+                <element signature="e#10169#11808#0" expanded="false" />
+                <element signature="e#11842#12973#0" expanded="false" />
+                <element signature="e#13009#13358#0" expanded="false" />
+                <element signature="e#13421#14973#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#2444#3144#0" expanded="false" />
+                <marker date="1523747015948" expanded="true" signature="2285:3144" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="download_and_preprocess_mscoco.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/download_and_preprocess_mscoco.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="89" column="41" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configuration.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuration.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,6 +118,20 @@
       <find>configuration</find>
       <find>training_config</find>
       <find>init_fn</find>
+      <find>jpeg</find>
+      <find>format</find>
+      <find>values_per_input_shard</find>
+      <find>shard</find>
+      <find>min</find>
+      <find>F:</find>
+      <find>ms_</find>
+      <find>images</find>
+      <find>height</find>
+      <find>index</find>
+      <find>val_image_dir</find>
+      <find>/</find>
+      <find>SCRATCH_DIR</find>
+      <find>OUTPUT_DIR</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -70,21 +139,30 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="build_inputs" />
+        <entry key="$PROJECT_DIR$" value="build_model" />
       </map>
     </option>
+    <push-targets>
+      <push-target-info target-remote="origin" target-branch="master" repo="$PROJECT_DIR$" source="build_model" />
+      <push-target-info target-remote="origin" target-branch="train" repo="$PROJECT_DIR$" source="train" />
+    </push-targets>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/prepare_data.py" />
+        <option value="$PROJECT_DIR$/configuration.py" />
         <option value="$PROJECT_DIR$/model.py" />
+        <option value="$PROJECT_DIR$/prepare_data.py" />
+        <option value="$PROJECT_DIR$/img2txt.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/build_mscoco_data.py" />
+        <option value="$PROJECT_DIR$/download_and_preprocess_mscoco.sh" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="681" />
-    <option name="width" value="685" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="689" />
+    <option name="width" value="677" />
     <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -104,6 +182,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -115,12 +194,16 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Inception-Lstm/im2txt" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="I:\FCIS\GP\Models\ImageCaptionByVoice" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -133,6 +216,54 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Python.train">
+    <configuration name="build_mscoco_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ImageCaptionByVoice" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/build_mscoco_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="ImageCaptionByVoice" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.build_mscoco_data" />
+      <item index="1" class="java.lang.String" itemvalue="Python.train" />
+    </list>
+    <recent_temporary>
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.train" />
+        <item index="1" class="java.lang.String" itemvalue="Python.build_mscoco_data" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -162,23 +293,37 @@
       <option name="project" value="LOCAL" />
       <updated>1523452029455</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merge branch 'master' of https://github.com/ShroukAbozeid/ImageCaptionByVoice into build_model&#10;&#10;# Conflicts:&#10;#&#9;model.py">
+      <created>1523480816389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523480816390</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Create train function and set up configuration">
+      <created>1523575465403</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523575465403</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="681" y="0" width="685" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1267388" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14136904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34060404" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18456376" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.625817" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17973857" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.031045752" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48856208" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -221,27 +366,245 @@
     <MESSAGE value="Read tfRecords and prepare batch" />
     <MESSAGE value="Build model graph and other init functions" />
     <MESSAGE value="Merge branch 'master' of https://github.com/ShroukAbozeid/ImageCaptionByVoice into build_model&#10;&#10;# Conflicts:&#10;#&#9;model.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/ShroukAbozeid/ImageCaptionByVoice into build_model&#10;&#10;# Conflicts:&#10;#&#9;model.py" />
+    <MESSAGE value="Create train function and set up configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create train function and set up configuration" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/prepare_data.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="5" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1462">
+          <caret line="86" column="11" lean-forward="false" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2414">
+          <caret line="282" column="34" lean-forward="false" selection-start-line="282" selection-start-column="34" selection-end-line="282" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#299#2167#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3604">
+          <caret line="437" column="10" lean-forward="false" selection-start-line="437" selection-start-column="10" selection-end-line="437" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#2287#1" expanded="false" />
+            <element signature="e#4578#5023#0" expanded="false" />
+            <element signature="e#5056#5648#0" expanded="false" />
+            <element signature="e#5453#5648#0" expanded="false" />
+            <element signature="e#5680#5826#0" expanded="false" />
+            <element signature="e#5858#6148#0" expanded="false" />
+            <element signature="e#6187#6340#0" expanded="false" />
+            <element signature="e#6584#7654#0" expanded="false" />
+            <element signature="e#10169#11808#0" expanded="false" />
+            <element signature="e#11842#12973#0" expanded="false" />
+            <element signature="e#13009#13358#0" expanded="false" />
+            <element signature="e#13421#14973#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="80" lean-forward="false" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#2444#3144#0" expanded="false" />
+            <marker date="1523747015948" expanded="true" signature="2285:3144" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="58" column="45" lean-forward="false" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/tensorflow/python/ops/parsing_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15079">
+          <caret line="908" column="42" lean-forward="true" selection-start-line="908" selection-start-column="42" selection-end-line="908" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="158" column="53" lean-forward="true" selection-start-line="158" selection-start-column="53" selection-end-line="158" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#299#2167#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="129" lean-forward="false" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="129" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#2444#3144#0" expanded="false" />
+            <marker date="1523747015948" expanded="true" signature="2285:3144" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3536">
+          <caret line="433" column="59" lean-forward="true" selection-start-line="433" selection-start-column="59" selection-end-line="433" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#2287#1" expanded="false" />
+            <element signature="e#4578#5023#0" expanded="false" />
+            <element signature="e#5056#5648#0" expanded="false" />
+            <element signature="e#5453#5648#0" expanded="false" />
+            <element signature="e#5680#5826#0" expanded="false" />
+            <element signature="e#5858#6148#0" expanded="false" />
+            <element signature="e#6187#6340#0" expanded="false" />
+            <element signature="e#6584#7654#0" expanded="false" />
+            <element signature="e#10169#11808#0" expanded="false" />
+            <element signature="e#11842#12973#0" expanded="false" />
+            <element signature="e#13009#13358#0" expanded="false" />
+            <element signature="e#13421#14973#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="9" lean-forward="false" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#299#2167#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1309">
+          <caret line="93" column="26" lean-forward="false" selection-start-line="93" selection-start-column="26" selection-end-line="93" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#2444#3144#0" expanded="false" />
+            <marker date="1523747015948" expanded="true" signature="2285:3144" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="365" column="26" lean-forward="true" selection-start-line="365" selection-start-column="26" selection-end-line="365" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#299#2167#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -254,20 +617,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -280,20 +642,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="116" column="0" lean-forward="false" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -306,38 +667,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -363,29 +722,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prepare_data.py">
+    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/tensorflow/python/ops/parsing_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="15079">
+          <caret line="908" column="42" lean-forward="false" selection-start-line="908" selection-start-column="42" selection-end-line="908" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/prepare_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="365" column="26" lean-forward="true" selection-start-line="365" selection-start-column="26" selection-end-line="365" selection-end-column="26" />
+        <state relative-caret-position="1394">
+          <caret line="84" column="17" lean-forward="false" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="95" column="53" lean-forward="false" selection-start-line="95" selection-start-column="53" selection-end-line="95" selection-end-column="53" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#299#2167#0" expanded="false" />
-            <element signature="e#2221#4220#0" expanded="false" />
-            <element signature="e#4258#6054#0" expanded="false" />
-            <element signature="e#6102#9066#0" expanded="false" />
-            <element signature="e#9111#9501#0" expanded="false" />
-            <element signature="e#9538#13579#0" expanded="false" />
-            <element signature="e#13622#13907#0" expanded="false" />
-            <element signature="e#13960#14489#0" expanded="false" />
+            <element signature="e#4270#6066#0" expanded="false" />
+            <element signature="e#6114#9078#0" expanded="false" />
+            <element signature="e#9123#9513#0" expanded="false" />
+            <element signature="e#11083#12205#0" expanded="false" />
+            <element signature="e#13652#13937#0" expanded="false" />
+            <element signature="e#13990#14519#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="77" column="13" lean-forward="true" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#2287#1" expanded="false" />
+            <element signature="e#4578#5023#0" expanded="false" />
+            <element signature="e#5056#5648#0" expanded="false" />
+            <element signature="e#5453#5648#0" expanded="false" />
+            <element signature="e#5680#5826#0" expanded="false" />
+            <element signature="e#5858#6148#0" expanded="false" />
+            <element signature="e#6187#6340#0" expanded="false" />
+            <element signature="e#6584#7654#0" expanded="false" />
+            <element signature="e#10169#11808#0" expanded="false" />
+            <element signature="e#11842#12973#0" expanded="false" />
+            <element signature="e#13009#13358#0" expanded="false" />
+            <element signature="e#13421#14973#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="60" lean-forward="true" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#2444#3144#0" expanded="false" />
+            <marker date="1523747015948" expanded="true" signature="2285:3144" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/download_and_preprocess_mscoco.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="89" column="41" lean-forward="false" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>

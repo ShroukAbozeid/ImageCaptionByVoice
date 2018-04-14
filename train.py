@@ -27,7 +27,7 @@ tf.flags.DEFINE_integer("log_every_n_steps", 1,
 tf.logging.set_verbosity(tf.logging.INFO)
 
 
-def main():
+def main(unused_argv):
     assert FLAGS.input_file_pattern, "--input_file_pattern is required"
     assert FLAGS.train_dir, "--train_dir is required"
 
@@ -94,6 +94,7 @@ def main():
         number_of_steps=50347,
         init_fn=model.init_fn,
         saver=saver)
+
 
 if __name__ == "__main__":
     tf.app.run()

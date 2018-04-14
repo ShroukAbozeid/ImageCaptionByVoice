@@ -77,14 +77,14 @@ def parse_sequence_example(example):
     context, seq = tf.parse_single_sequence_example(
         example,
         context_features={
-            "image/data": tf.FixedLenSequenceFeature([], dtype=tf.string)
+            "image/data": tf.FixedLenFeature([], dtype=tf.string)
         },
         sequence_features={
-            "image/caption_ids": tf.FixedLenSequenceFeature([], dtype=tf.int64)
+            "image/caption_ids": tf.FixedLenSequenceFeature([], dtype=tf.int64),
         })
     encoded_image = context["image/data"]
-    caption = seq["image/captions_ids"]
-    return  encoded_image, caption
+    caption = seq["image/caption_ids"]
+    return encoded_image, caption
 
 
 def prepare_batch(data, batch_size, queue_capacity):

@@ -98,7 +98,7 @@ class Model(object):
 
         # Crop to final dimensions.--------- why diff methods?
         if self.mode == "train":
-            image = tf.random_crop(image, [self.config.height, self.config.width, 3])
+            image = tf.random_crop(image, [self.config.image_height, self.config.image_width, 3])
         else:
             # Central crop, assuming resize_height > height, resize_width > width.
             image = tf.image.resize_image_with_crop_or_pad(image, self.config.height, self.config.width)
@@ -275,12 +275,12 @@ class Model(object):
             # Run rnn
             if self.mode == "train" or self.mode == "eval":
                 sequence_length = tf.reduce_sum(self.input_mask, 1)
-                rnn_outputs = tf.nn.dynamic_rnn(cell=cell,
-                                                inputs=self.seq_embeddings,
-                                                sequence_length=sequence_length,
-                                                initial_state=initial_state,
-                                                dtype=tf.float32,
-                                                scope=rnn_scope)
+                rnn_outputs, _ = tf.nn.dynamic_rnn(cell=cell,
+                                                   inputs=self.seq_embeddings,
+                                                   sequence_length=sequence_length,
+                                                   initial_state=initial_state,
+                                                   dtype=tf.float32,
+                                                   scope=rnn_scope)
             else:
                 tf.concat(axis=1, values=initial_state, name="initial_state")
                 if self.rnn_type == "lstm":
