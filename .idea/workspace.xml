@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68be7b4b-5f8c-4152-90db-f6f9c5651c69" name="Default" comment="Merge branch 'master' of https://github.com/ShroukAbozeid/ImageCaptionByVoice into higazysbranch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/configuration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui_inference.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img2txt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inference_utils/caption_generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/inference_utils/vocabulary.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run_inference.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepare_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/prepare_data.py" afterDir="false" />
-    </list>
+    <list default="true" id="68be7b4b-5f8c-4152-90db-f6f9c5651c69" name="Default" comment="Merge branch 'master' of https://github.com/ShroukAbozeid/ImageCaptionByVoice into higazysbranch&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
