@@ -91,7 +91,7 @@ def main(unused_argv):
         log_every_n_steps=FLAGS.log_every_n_steps,
         graph=g,
         global_step=model.global_step,
-        number_of_steps=50347,
+        number_of_steps=FLAGS.number_of_steps,
         init_fn=model.init_fn,
         saver=saver)
 
