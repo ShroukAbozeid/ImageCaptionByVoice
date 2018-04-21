@@ -176,7 +176,7 @@ def _bytes_feature(value):
   try:
     value = value.encode('utf-8')
   except:
-    print("")
+    x = 3
     #return tf.train.Feature(bytes_list=tf.train.BytesList(value=[str(value)]))
   return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
