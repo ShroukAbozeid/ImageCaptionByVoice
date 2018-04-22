@@ -116,7 +116,8 @@ tf.flags.DEFINE_integer("min_word_count", 4,
                         "training set for inclusion in the vocabulary.")
 tf.flags.DEFINE_string("word_counts_output_file", "/tmp/word_counts.txt",
                        "Output vocabulary file of word counts.")
-
+tf.flags.DEFINE_string("vocab_size_output_file", "/tmp/vocab_size.txt",
+                       "Output vocabulary size ")
 tf.flags.DEFINE_integer("num_threads", 8,
                         "Number of threads to preprocess the images.")
 
@@ -360,8 +361,7 @@ def _create_vocab(captions):
   print("Words in vocabulary:", len(word_counts))
 
   # write the vocab size
-  tmp_path = os.path.join(FLAGS.output_dir,"/vocab_size.txt")
-  with tf.gfile.FastGFile(tmp_path, "w") as f:
+  with tf.gfile.FastGFile(FLAGS.vocab_size_output_file, "w") as f:
     f.write("{0}".format(len(word_counts)))
 
   # Write out the word counts file.
