@@ -267,7 +267,8 @@ def _process_image_files(thread_index, ranges, name, images, decoder, vocab,
     images_in_shard = np.arange(shard_ranges[s], shard_ranges[s + 1], dtype=int)
     for i in images_in_shard:
       image = images[i]
-
+      if not tf.gfile.Exists(image.filename):
+          continue
       sequence_example = _to_sequence_example(image, decoder, vocab)
       if sequence_example is not None:
         writer.write(sequence_example.SerializeToString())
@@ -357,6 +358,11 @@ def _create_vocab(captions):
   word_counts = [x for x in counter.items() if x[1] >= FLAGS.min_word_count]
   word_counts.sort(key=lambda x: x[1], reverse=True)
   print("Words in vocabulary:", len(word_counts))
+
+  # write the vocab size
+  tmp_path = os.path.join(FLAGS.output_dir,"/vocab_size.txt")
+  with tf.gfile.FastGFile(tmp_path, "w") as f:
+    f.write("{0}".format(len(word_counts)))
 
   # Write out the word counts file.
   with tf.gfile.FastGFile(FLAGS.word_counts_output_file, "w") as f:
