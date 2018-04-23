@@ -361,8 +361,8 @@ def _create_vocab(captions):
   print("Words in vocabulary:", len(word_counts))
 
   # write the vocab size
-  with tf.gfile.FastGFile(FLAGS.vocab_size_output_file, "w") as f:
-    f.write("{0}".format(len(word_counts)))
+  #with tf.gfile.FastGFile(FLAGS.vocab_size_output_file, "w") as f:
+  # f.write("{0}".format(len(word_counts)))
 
   # Write out the word counts file.
   with tf.gfile.FastGFile(FLAGS.word_counts_output_file, "w") as f:
