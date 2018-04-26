@@ -6,8 +6,8 @@ class ModelConfig(object):
         self.input_file_pattern = None
         self.image_format = "jpeg"
 
-        self.vocab_size = 9954
-        self.batch_size = 10
+        self.vocab_size = 12000
+        self.batch_size = 32
 
         self.inception_checkpoint_file = None
 
@@ -24,8 +24,8 @@ class ModelConfig(object):
 
 class TrainingConfig(object):
     def __init__(self):
-        self.dataset_size = 55190
-        self.num_examples_per_epoch = self.dataset_size * 5
+
+        self.num_examples_per_epoch = 586363
 
         self.optimizer = "SGD"
 
