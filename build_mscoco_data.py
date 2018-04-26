@@ -204,9 +204,17 @@ def _to_sequence_example(image, decoder, vocab):
   Returns:
     A SequenceExample proto.
   """
-  #with tf.gfile.FastGFile(image.filename, "rb") as f:
+  # with tf.gfile.FastGFile(image.filename, "rb") as f:
   #  encoded_image = f.read()
-  encoded_image = urlopen(image.image_url).read()
+  start = image.filename.find("/train2014/")
+  if start == -1:
+      start = image.filename.find("/val2014/")
+
+  link = "http://images.cocodataset.org"
+  img_link = link + image.filename[start:]
+  encoded_image = urlopen(img_link).read()
+
+  # encoded_image = urlopen(image.image_url).read()
   try:
     decoder.decode_jpeg(encoded_image)
   except (tf.errors.InvalidArgumentError, AssertionError):
