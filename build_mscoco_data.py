@@ -124,7 +124,7 @@ tf.flags.DEFINE_integer("num_threads", 8,
 FLAGS = tf.flags.FLAGS
 
 ImageMetadata = namedtuple("ImageMetadata",
-                           ["image_id", "filename", "captions", "image_url"])
+                           ["image_id", "filename", "captions"])
 
 
 class Vocabulary(object):
@@ -182,7 +182,6 @@ def _bytes_feature(value):
   return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
 
 
-
 def _int64_feature_list(values):
   """Wrapper for inserting an int64 FeatureList into a SequenceExample proto."""
   return tf.train.FeatureList(feature=[_int64_feature(v) for v in values])
@@ -214,7 +213,6 @@ def _to_sequence_example(image, decoder, vocab):
   img_link = link + image.filename[start:]
   encoded_image = urlopen(img_link).read()
 
-  # encoded_image = urlopen(image.image_url).read()
   try:
     decoder.decode_jpeg(encoded_image)
   except (tf.errors.InvalidArgumentError, AssertionError):
@@ -309,7 +307,7 @@ def _process_dataset(name, images, vocab, num_shards):
     num_shards: Integer number of shards for the output files.
   """
   # Break up each image into a separate entity for each caption.
-  images = [ImageMetadata(image.image_id, image.filename, [caption],image.image_url)
+  images = [ImageMetadata(image.image_id, image.filename, [caption])
             for image in images for caption in image.captions]
 
   # Shuffle the ordering of images. Make the randomization repeatable.
@@ -415,7 +413,7 @@ def _load_and_process_metadata(captions_file, image_dir):
     caption_data = json.load(f)
 
   # Extract the filenames.
-  id_to_filename = [(x["id"], x["file_name"], x["coco_url"]) for x in caption_data["images"]]
+  id_to_filename = [(x["id"], x["file_name"]) for x in caption_data["images"]]
 
 
   # Extract the captions. Each image_id is associated with multiple captions.
@@ -435,10 +433,12 @@ def _load_and_process_metadata(captions_file, image_dir):
   print("Processing captions.")
   image_metadata = []
   num_captions = 0
-  for image_id, base_filename, image_url in id_to_filename:
+  for image_id, base_filename in id_to_filename:
     filename = os.path.join(image_dir, base_filename)
+    if not tf.gfile.Exists(filename):
+      continue
     captions = [_process_caption(c) for c in id_to_captions[image_id]]
-    image_metadata.append(ImageMetadata(image_id, filename, captions,image_url))
+    image_metadata.append(ImageMetadata(image_id, filename, captions))
     num_captions += len(captions)
   print("Finished processing %d captions for %d images in %s" %
         (num_captions, len(id_to_filename), captions_file))
