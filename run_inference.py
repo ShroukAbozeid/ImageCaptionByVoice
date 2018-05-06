@@ -17,15 +17,15 @@ import os
 tf.flags.DEFINE_string("checkpoint_path", "./model/train/",
                        "Model checkpoint file or directory containing a "
                        "model checkpoint file.")
-tf.flags.DEFINE_string("vocab_file", "/media/higazy/New Volume/GP/ImageCaptionByVoice/word_counts.txt", "Text file containing the vocabulary.")
-tf.flags.DEFINE_string("input_files","/media/higazy/New Volume/im2txt/24f34s.jpg"
-,
+tf.flags.DEFINE_string("vocab_file", "./data/word_counts.txt", "Text file containing the vocabulary.")
+tf.flags.DEFINE_string("input_files", "",
                        "File pattern or comma-serated list of file patterns "
                        "of image files.")
-tf.flags.DEFINE_string(flag_name="rnn_type", default_value= "lstm",
+tf.flags.DEFINE_string(flag_name="rnn_type", default_value="lstm",
                        docstring="RNN cell type lstm/gru .")
 
 tf.logging.set_verbosity(tf.logging.INFO)
+
 
 def main(_):
   #build the inference graph

@@ -1,6 +1,7 @@
 import tensorflow as tf
 import configuration
 import img2txt
+import time
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -20,7 +21,7 @@ tf.flags.DEFINE_string(flag_name="train_dir", default_value="./model/train",
 tf.flags.DEFINE_boolean("train_inception", False,
                         "Whether to train inception submodel variables.")
 
-tf.flags.DEFINE_integer("number_of_steps", 1000000, "Number of training steps.")
+tf.flags.DEFINE_integer("number_of_steps", 1, "Number of training steps.")
 tf.flags.DEFINE_integer("log_every_n_steps", 1,
                         "Frequency at which loss and global step are logged.")
 
@@ -41,13 +42,14 @@ def main(unused_argv):
     if not tf.gfile.IsDirectory(train_dir):
         tf.logging.info("Creating training directory: %s", train_dir)
         tf.gfile.MakeDirs(train_dir)
+    start_time = time.time()
 
     g = tf.Graph()
     with g.as_default():
-        model = img2txt.Model(model_config,
-                                            mode="train",
-                                            rnn_type=FLAGS.rnn_type,
-                                            train_inception=FLAGS.train_inception)
+        model = img2txt.Model(config=model_config,
+                              mode="train",
+                              rnn_type=FLAGS.rnn_type,
+                              train_inception=FLAGS.train_inception)
         model.build()
 
         # Set up the learning rate.
@@ -94,6 +96,13 @@ def main(unused_argv):
         number_of_steps=FLAGS.number_of_steps,
         init_fn=model.init_fn,
         saver=saver)
+    end_time = time.time()
+    duration = end_time - start_time
+    print(time.strftime('Start time :%Y-%m-%d %H:%M:%S', time.localtime(start_time)))
+    print(time.strftime('End time :%Y-%m-%d %H:%M:%S', time.localtime(end_time)))
+    m, s = divmod(duration, 60)
+    h, m = divmod(m, 60)
+    print("Total time %d:%02d:%02d" % (h, m, s))
 
 
 if __name__ == "__main__":
