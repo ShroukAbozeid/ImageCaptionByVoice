@@ -69,7 +69,7 @@ class Model(object):
         # Global step Tensor.
         self.global_step = None
 
-    def process_image(self, encoded_image):
+    def process_image(self, encoded_image, thread_id=0):
         """
         Decode an image, resize and apply random distortions.
         Args:
@@ -103,13 +103,23 @@ class Model(object):
             # Central crop, assuming resize_height > height, resize_width > width.
             image = tf.image.resize_image_with_crop_or_pad(image, self.config.image_height, self.config.image_width)
 
-        # distort
-        if self.mode == "train":
-            with tf.name_scope("distort_color", values=[image]):
+        # Randomly flip horizontally.
+        with tf.name_scope("flip_horizontal", values=[image]):
+            image = tf.image.random_flip_left_right(image)
+
+        # Randomly distort the colors based on thread id.
+        color_ordering = thread_id % 2
+        with tf.name_scope("distort_color", values=[image]):
+            if color_ordering == 0:
                 image = tf.image.random_brightness(image, max_delta=32. / 255.)
                 image = tf.image.random_saturation(image, lower=0.5, upper=1.5)
                 image = tf.image.random_hue(image, max_delta=0.032)
                 image = tf.image.random_contrast(image, lower=0.5, upper=1.5)
+            elif color_ordering == 1:
+                image = tf.image.random_brightness(image, max_delta=32. / 255.)
+                image = tf.image.random_contrast(image, lower=0.5, upper=1.5)
+                image = tf.image.random_saturation(image, lower=0.5, upper=1.5)
+                image = tf.image.random_hue(image, max_delta=0.032)
 
             image = tf.clip_by_value(image, 0.0, 1.0)
 
@@ -143,17 +153,21 @@ class Model(object):
             input_mask = None
         else:
             queue = prepare_data.read_data(
-                self.reader,
-                self.config.input_file_pattern,
-                True,
-                self.config.batch_size)
+                reader=self.reader,
+                file_pattern=self.config.input_file_pattern,
+                is_training=True,
+                batch_size=self.config.batch_size,
+                values_per_shard=self.config.values_per_input_shard,
+                input_queue_capacity_factor=self.config.input_queue_capacity_factor,
+                num_reader_threads=self.config.num_input_reader_threads)
             data = []
-            seq_example = queue.dequeue()
-            encoded_img, caption = prepare_data.parse_sequence_example(seq_example)
-            image = self.process_image(encoded_img)
-            data.append([image, caption])
+            for thread_id in range(self.config.num_preprocess_threads):
+                seq_example = queue.dequeue()
+                encoded_img, caption = prepare_data.parse_sequence_example(seq_example)
+                image = self.process_image(encoded_img, thread_id=thread_id)
+                data.append([image, caption])
 
-            queue_capacity = 2 * self.config.batch_size
+            queue_capacity = (2 * self.config.num_preprocess_threads * self.config.batch_size)
 
             images, input_seqs, target_seqs, input_mask = (
                 prepare_data.prepare_batch(data=data,

@@ -1,7 +1,10 @@
 import tensorflow as tf
 
 
-def read_data(reader, file_pattern, is_training, batch_size):
+def read_data(reader, file_pattern, is_training, batch_size,
+              values_per_shard, input_queue_capacity_factor=16,
+              num_reader_threads=1, shard_queue_name="filename_queue",
+              value_queue_name="input_queue"):
     """Prefetches string values from disk into an input queue.
 
       In training the capacity of the queue is important because a larger queue
@@ -28,12 +31,6 @@ def read_data(reader, file_pattern, is_training, batch_size):
     data_files = []
     for pattern in file_pattern.split(","):
         data_files.extend(tf.gfile.Glob(pattern))
-
-    values_per_shard = 2300
-    num_reader_threads = 1
-    shard_queue_name = "filename_queue"
-    value_queue_name = "input_queue"
-    input_queue_capacity_factor = 2
 
     # create queues to hold file names and values --- why those num for capacity?
     if is_training:
