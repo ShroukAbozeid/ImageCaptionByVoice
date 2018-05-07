@@ -34,8 +34,7 @@ class ModelConfig(object):
 
 class TrainingConfig(object):
     def __init__(self):
-        self.dataset_size = 55190
-        self.num_examples_per_epoch = self.dataset_size * 5
+        self.num_examples_per_epoch = 586363
 
         self.optimizer = "SGD"
 
