@@ -428,6 +428,8 @@ def _load_and_process_metadata(captions_file, image_dir):
   num_captions = 0
   for image_id, base_filename in id_to_filename:
     filename = os.path.join(image_dir, base_filename)
+    if not tf.gfile.Exists(filename):
+      continue
     captions = [_process_caption(c) for c in id_to_captions[image_id]]
     image_metadata.append(ImageMetadata(image_id, filename, captions))
     num_captions += len(captions)
