@@ -21,14 +21,16 @@ tf.flags.DEFINE_string("test_captions_file", "/tmp/captions_test2014.json",
 tf.flags.DEFINE_string("checkpoint_path", "/media/higazy/New Volume/GP/ImageCaptionByVoice/model/train/",
                        "Model checkpoint file or directory containing a "
                        "model checkpoint file.")
-tf.flags.DEFINE_string("vocab_file", "/media/higazy/New Volume/GP/ImageCaptionByVoice/word_counts101.txt", "Text file containing the vocabulary.")
-tf.flags.DEFINE_string("input_files", "/home/higazy/Pictures/31697431_606252433088562_6738933880767643648_n.jpg"
-,"File pattern or comma-serated list of file patterns "
+
+tf.flags.DEFINE_string("vocab_file", "./data/word_counts.txt", "Text file containing the vocabulary.")
+tf.flags.DEFINE_string("input_files", "",
+                       "File pattern or comma-serated list of file patterns "
                        "of image files.")
-tf.flags.DEFINE_string(flag_name="rnn_type", default_value= "lstm",
+tf.flags.DEFINE_string(flag_name="rnn_type", default_value="lstm",
                        docstring="RNN cell type lstm/gru .")
-tf.flags.DEFINE_boolean("mode", False, "blah blah")
+tf.flags.DEFINE_boolean("mode", False, "true for directory and false for file patterns")
 tf.logging.set_verbosity(tf.logging.INFO)
+
 
 def main(_):
   #build the inference graph

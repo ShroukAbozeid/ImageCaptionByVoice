@@ -130,6 +130,7 @@ class Model(object):
 
     def build_inputs(self):
         """Input prefetching, preprocessing and batching.
+
            Outputs:
              self.images
              self.input_seqs
@@ -379,3 +380,4 @@ class Model(object):
         self.build_model()
         self.setup_global_step()
         self.setup_inception_initializer()
+

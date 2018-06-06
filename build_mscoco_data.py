@@ -428,6 +428,8 @@ def _load_and_process_metadata(captions_file, image_dir):
   num_captions = 0
   for image_id, base_filename in id_to_filename:
     filename = os.path.join(image_dir, base_filename)
+    if not tf.gfile.Exists(filename):
+      continue
     captions = [_process_caption(c) for c in id_to_captions[image_id]]
     image_metadata.append(ImageMetadata(image_id, filename, captions))
     num_captions += len(captions)
@@ -460,12 +462,12 @@ def main(unused_argv):
 
   # Redistribute the MSCOCO data as follows:
   #   train_dataset = 100% of mscoco_train_dataset + 85% of mscoco_val_dataset.
-  #   val_dataset = 50% of mscoco_val_dataset (for validation during training).
-  #   test_dataset = 50% of mscoco_val_dataset (for final evaluation).
-
-  val_cutoff = int(0.5 * len(mscoco_val_dataset))
-  train_dataset = mscoco_train_dataset
-  val_dataset = mscoco_val_dataset[0:val_cutoff]
+  #   val_dataset = 5% of mscoco_val_dataset (for validation during training).
+  #   test_dataset = 10% of mscoco_val_dataset (for final evaluation).
+  train_cutoff = int(0.85 * len(mscoco_val_dataset))
+  val_cutoff = int(0.90 * len(mscoco_val_dataset))
+  train_dataset = mscoco_train_dataset + mscoco_val_dataset[0:train_cutoff]
+  val_dataset = mscoco_val_dataset[train_cutoff:val_cutoff]
   test_dataset = mscoco_val_dataset[val_cutoff:]
 
   # Create vocabulary from the training captions.
