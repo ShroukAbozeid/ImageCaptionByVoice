@@ -19,6 +19,7 @@ class ModelConfig(object):
         self.vocab_size = 12000
         self.batch_size = 32
 
+
         self.inception_checkpoint_file = None
 
         self.image_height = 299

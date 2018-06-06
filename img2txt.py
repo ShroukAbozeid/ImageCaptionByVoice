@@ -380,3 +380,4 @@ class Model(object):
         self.build_model()
         self.setup_global_step()
         self.setup_inception_initializer()
+
