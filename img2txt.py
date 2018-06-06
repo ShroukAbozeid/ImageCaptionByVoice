@@ -101,7 +101,7 @@ class Model(object):
             image = tf.random_crop(image, [self.config.image_height, self.config.image_width, 3])
         else:
             # Central crop, assuming resize_height > height, resize_width > width.
-            image = tf.image.resize_image_with_crop_or_pad(image, self.config.height, self.config.width)
+            image = tf.image.resize_image_with_crop_or_pad(image, self.config.image_height, self.config.image_width)
 
         # distort
         if self.mode == "train":
@@ -266,7 +266,7 @@ class Model(object):
                 output_keep_prob=self.config.rnn_dropout_keep_prob)
 
         # Feed the image embeddings to set the initial state.
-        with tf.variable_scope("rnn", initializer=self.initializer) as rnn_scope:
+        with tf.variable_scope("lstm", initializer=self.initializer) as rnn_scope:
             zero_state = cell.zero_state(
                 batch_size=self.image_embeddings.get_shape()[0], dtype=tf.float32)
             _, initial_state = cell(self.image_embeddings, zero_state)
