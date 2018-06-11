@@ -80,8 +80,8 @@ def main(_):
       print("Captions for image %s:" % os.path.basename(filename))
       if FLAGS.mode == True:
           img_name = os.path.basename(filename)
-          '''if img_name not in val_image_names:
-              continue'''
+          if img_name not in val_image_names:
+              continue
           img_id = id_to_filename[img_name]
           caption = captions[0]
           temp = [vocab.id_to_word(w) for w in caption.sentence[1:-1]]
