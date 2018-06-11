@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68be7b4b-5f8c-4152-90db-f6f9c5651c69" name="Default" comment="Fix train and add script for proccesing data">
-      <change afterPath="$PROJECT_DIR$/inference_gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ImageCaptionByVoice.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img2txt.py" beforeDir="false" afterPath="$PROJECT_DIR$/img2txt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inference_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/inference_wrapper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inference_gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/inference_gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/run_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_inference.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run_inference.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_inference.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/run_inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+            <state relative-caret-position="187">
+              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -34,7 +33,7 @@
       <file leaf-file-name="build_mscoco_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5464">
+            <state relative-caret-position="6579">
               <caret line="405" column="39" selection-start-line="405" selection-start-column="26" selection-end-line="405" selection-end-column="39" />
               <folding>
                 <element signature="e#2289#2327#0" expanded="true" />
@@ -46,8 +45,8 @@
       <file leaf-file-name="img2txt.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/img2txt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3570">
-              <caret line="268" column="36" selection-start-line="268" selection-start-column="36" selection-end-line="268" selection-end-column="36" />
+            <state relative-caret-position="143">
+              <caret line="282" column="35" selection-start-line="282" selection-start-column="35" selection-end-line="282" selection-end-column="35" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
                 <element signature="e#299#2167#0" />
@@ -59,20 +58,20 @@
       <file leaf-file-name="inference_gui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inference_gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+            <state relative-caret-position="143">
+              <caret line="22" column="65" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="65" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inference_wrapper.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="inference_wrapper.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inference_wrapper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
+            <state relative-caret-position="313">
+              <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -89,8 +88,8 @@
       <file leaf-file-name="configuration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configuration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -128,9 +127,10 @@
       <find>initial_state</find>
       <find>gene</find>
       <find>/home/shroookabozaid/im2txt/model/train</find>
-      <find>lstm</find>
-      <find>rnn</find>
       <find>loa</find>
+      <find>rnn</find>
+      <find>mode</find>
+      <find>lstm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,11 +151,11 @@
         <option value="$PROJECT_DIR$/build_mscoco_data.py" />
         <option value="$PROJECT_DIR$/download_and_preprocess_mscoco.sh" />
         <option value="$PROJECT_DIR$/model/train/checkpoint" />
-        <option value="$PROJECT_DIR$/img2txt.py" />
-        <option value="$PROJECT_DIR$/inference_wrapper.py" />
         <option value="$PROJECT_DIR$/configuration.py" />
         <option value="$PROJECT_DIR$/inference_gui.py" />
         <option value="$PROJECT_DIR$/run_inference.py" />
+        <option value="$PROJECT_DIR$/img2txt.py" />
+        <option value="$PROJECT_DIR$/inference_wrapper.py" />
       </list>
     </option>
   </component>
@@ -171,7 +171,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,6 +187,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,7 +211,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.inference_gui">
+  <component name="RunManager" selected="Python.run_inference">
     <configuration name="build_mscoco_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ImageCaptionByVoice" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -292,8 +292,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.inference_gui" />
         <item itemvalue="Python.run_inference" />
+        <item itemvalue="Python.inference_gui" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.build_mscoco_data" />
       </list>
@@ -343,14 +343,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="-17" width="1325" height="786" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13629402" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13618974" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.34060404" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.17973857" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.031045752" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25560537" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25560537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -424,7 +423,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/prepare_data.py</url>
-          <line>58</line>
+          <line>55</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -751,17 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img2txt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3570">
-          <caret line="268" column="36" selection-start-line="268" selection-start-column="36" selection-end-line="268" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#299#2167#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inference_utils/caption_generator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2652">
@@ -771,31 +759,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configuration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inference_wrapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inference_gui.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="306">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build_mscoco_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5464">
+        <state relative-caret-position="6579">
           <caret line="405" column="39" selection-start-line="405" selection-start-column="26" selection-end-line="405" selection-end-column="39" />
           <folding>
             <element signature="e#2289#2327#0" expanded="true" />
@@ -805,11 +776,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/run_inference.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img2txt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="282" column="35" selection-start-line="282" selection-start-column="35" selection-end-line="282" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#299#2167#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inference_gui.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inference_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="27" column="14" lean-forward="true" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
         </state>
       </provider>
     </entry>
