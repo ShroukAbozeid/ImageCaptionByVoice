@@ -22,9 +22,9 @@ tf.flags.DEFINE_string("checkpoint_path", "./model/train/",
                        "Model checkpoint file or directory containing a "
                        "model checkpoint file.")
 
-tf.flags.DEFINE_string("vocab_file", "word_counts101.txt", "Text file containing the vocabulary.")
+tf.flags.DEFINE_string("vocab_file", "./data/word_counts.txt", "Text file containing the vocabulary.")
 tf.flags.DEFINE_string("input_files", "./img",
-                       "File  directory"
+                       "Directory"
                        "of image files.")
 tf.flags.DEFINE_string(flag_name="rnn_type", default_value="lstm",
                        docstring="RNN cell type lstm/gru .")
