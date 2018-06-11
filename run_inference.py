@@ -15,7 +15,7 @@ FLAGS = tf.flags.FLAGS
 
 import os
 
-tf.flags.DEFINE_string("test_captions_file", "captions_val2014.json",
+tf.flags.DEFINE_string("val_captions_file", "captions_val2014.json",
                        "testing captions JSON file.")
 
 tf.flags.DEFINE_string("checkpoint_path", "./model/train/",
@@ -24,11 +24,11 @@ tf.flags.DEFINE_string("checkpoint_path", "./model/train/",
 
 tf.flags.DEFINE_string("vocab_file", "word_counts101.txt", "Text file containing the vocabulary.")
 tf.flags.DEFINE_string("input_files", "./img",
-                       "File pattern or comma-serated list of file patterns "
+                       "File  directory"
                        "of image files.")
 tf.flags.DEFINE_string(flag_name="rnn_type", default_value="lstm",
                        docstring="RNN cell type lstm/gru .")
-tf.flags.DEFINE_boolean("mode", True, "true for directory and false for file patterns")
+tf.flags.DEFINE_boolean("mode", False, "true for evaluation and false for testing")
 tf.logging.set_verbosity(tf.logging.INFO)
 
 
@@ -61,17 +61,19 @@ def main(_):
     # available beam search parameters.
     generator = caption_generator.CaptionGenerator(model, vocab)
 
-    with tf.gfile.FastGFile(FLAGS.test_captions_file, "r") as f:
-        caption_data = json.load(f)
+    if FLAGS.mode == True:
+        with tf.gfile.FastGFile(FLAGS.val_captions_file, "r") as f:
+            caption_data = json.load(f)
 
-    # Extract the filenames.
-    id_to_filename = {x["file_name"]: x["id"] for x in caption_data["images"]}
 
-    data = []
+        # Extract the filenames.
+        id_to_filename = {x["file_name"]: x["id"] for x in caption_data["images"]}
 
-    with open('val_images.json') as f:
-        val_data = json.load(f)
-    val_image_names = val_data['images_name']
+        data = []
+
+        with open('val_images.json') as f:
+            val_data = json.load(f)
+        val_image_names = val_data['images_name']
 
     for filename in filenames:
       with tf.gfile.GFile(filename, "rb") as f:
@@ -99,9 +101,9 @@ def main(_):
         sentence = [vocab.id_to_word(w) for w in caption.sentence[1:-1]]
         sentence = " ".join(sentence)
         print("  %d) %s (p=%f)" % (i, sentence, math.exp(caption.logprob)))
-
-    with open('captions_val2014_im2txt_results.json', 'w') as outfile:
-        json.dump(data, outfile)
+    if FLAGS.mode == True:
+        with open('captions_val2014_im2txt_results.json', 'w') as outfile:
+            json.dump(data, outfile)
 
 
 if __name__ == "__main__":
