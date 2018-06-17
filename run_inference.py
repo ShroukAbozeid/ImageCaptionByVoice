@@ -23,12 +23,12 @@ tf.flags.DEFINE_string("checkpoint_path", "./model/train/",
                        "model checkpoint file.")
 
 tf.flags.DEFINE_string("vocab_file", "./data/word_counts.txt", "Text file containing the vocabulary.")
-tf.flags.DEFINE_string("input_files", "./img",
+tf.flags.DEFINE_string("input_files", "E:/ShroukGP/MSCOCO dataset/val2014/val2014",
                        "Directory"
                        "of image files.")
 tf.flags.DEFINE_string(flag_name="rnn_type", default_value="lstm",
                        docstring="RNN cell type lstm/gru .")
-tf.flags.DEFINE_boolean("mode", False, "true for evaluation and false for testing")
+tf.flags.DEFINE_boolean("mode", True, "true for evaluation and false for testing")
 tf.logging.set_verbosity(tf.logging.INFO)
 
 
@@ -45,13 +45,13 @@ def main(_):
 
 
   filenames = []
-
+  '''
   path = FLAGS.input_files + "/*.jpg"
   for image in glob.glob(path):
     filenames.extend(tf.gfile.Glob(image))
   tf.logging.info("Running caption generation on %d files matching %s",
     len(filenames), FLAGS.input_files)
-
+    '''
   with tf.Session(graph=g) as sess:
     # Load the model from checkpoint.
     restore_fn(sess)
@@ -74,14 +74,16 @@ def main(_):
         with open('val_images.json') as f:
             val_data = json.load(f)
         val_image_names = val_data['images_name']
+    filenames = val_image_names
 
     for filename in filenames:
-      with tf.gfile.GFile(filename, "rb") as f:
+      tmp = FLAGS.input_files + "/" + filename
+      with tf.gfile.GFile(tmp, "rb") as f:
         image = f.read()
       captions = generator.beam_search(sess, image)
-      print("Captions for image %s:" % os.path.basename(filename))
+      print("Captions for image %s:" % os.path.basename(tmp))
       if FLAGS.mode == True:
-          img_name = os.path.basename(filename)
+          img_name = os.path.basename(tmp)
           if img_name not in val_image_names:
               continue
           img_id = id_to_filename[img_name]
