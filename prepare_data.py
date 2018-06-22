@@ -124,6 +124,5 @@ def prepare_batch(data, batch_size, queue_capacity):
         name="batch_and_pad"
     )
 
-    #[Todo] summary
 
     return images, input_seqs, target_seqs, masks

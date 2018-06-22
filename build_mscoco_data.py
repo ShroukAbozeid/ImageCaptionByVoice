@@ -98,11 +98,11 @@ tf.flags.DEFINE_string("val_captions_file", "/tmp/captions_val2014.json",
 
 tf.flags.DEFINE_string("output_dir", "/tmp/", "Output data directory.")
 
-tf.flags.DEFINE_integer("train_shards", 181,
+tf.flags.DEFINE_integer("train_shards", 256,
                         "Number of shards in training TFRecord files. training-size * 5 / values per input shard")
-tf.flags.DEFINE_integer("val_shards", 45,
+tf.flags.DEFINE_integer("val_shards", 4,
                         "Number of shards in validation TFRecord files.")
-tf.flags.DEFINE_integer("test_shards", 45,
+tf.flags.DEFINE_integer("test_shards", 8,
                         "Number of shards in testing TFRecord files.")
 
 tf.flags.DEFINE_string("start_word", "<S>",
