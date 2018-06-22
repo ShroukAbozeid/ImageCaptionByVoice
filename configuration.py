@@ -1,8 +1,7 @@
 class ModelConfig(object):
     def __init__(self):
-        """Sets the default model hyperparameters."""
         # File pattern of sharded TFRecord file containing SequenceExample protos.
-        # Must be provided in training and evaluation modes.
+
         self.input_file_pattern = None
         self.image_format = "jpeg"
 
@@ -18,7 +17,6 @@ class ModelConfig(object):
 
         self.vocab_size = 12000
         self.batch_size = 32
-
 
         self.inception_checkpoint_file = None
 
