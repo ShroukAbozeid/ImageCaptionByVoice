@@ -59,14 +59,15 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
  downloading dataset
  
  Location to save the MSCOCO data :
- 
+ ```
  MSCOCO_DIR="${HOME}/im2txt/data/mscoco"
  
  ./download_and_preprocess_mscoco "${MSCOCO_DIR}"
 
  running build_mscoco
-  
+  ```
   Note that :
+  ```
   train_shards = ( train_dataset size * 5 ) /2300
   val_shards = (val_dataset size * 5 ) /2300
   test_shards = ( test_dataset size * 5 ) /2300
@@ -84,12 +85,12 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
   VAL_CAPTIONS_FILE="${SCRATCH_DIR}/annotations/captions_val2014.json"
   
   python3 build_mscoco_data.py --train_image_dir="${TRAIN_IMAGE_DIR}" --val_image_dir="${VAL_IMAGE_DIR}"   --train_captions_file="${TRAIN_CAPTIONS_FILE}"   --val_captions_file="${VAL_CAPTIONS_FILE}"   --output_dir="${OUTPUT_DIR}" --word_counts_output_file="${OUTPUT_DIR}/word_counts.txt" --train_shards=256 --val_shards=4 --test_shards=8
-
+```
 
  2.2 Download the Inception v3 Checkpoint
   
   Location to save the Inception v3 checkpoint.
-  
+  ```
   INCEPTION_DIR="${HOME}/im2txt/data"
   
   mkdir -p ${INCEPTION_DIR}
@@ -99,9 +100,9 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
   tar -xvf "inception_v3_2016_08_28.tar.gz" -C ${INCEPTION_DIR}
   
   rm "inception_v3_2016_08_28.tar.gz”
-
+```
 2.3 Training a Model
-  
+  ```
   MODEL_DIR="${HOME}/im2txt/model"
   
   INCEPTION_CHECKPOINT="${HOME}/im2txt/data/inception_v3.ckpt
@@ -109,7 +110,7 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
   MSCOCO_DIR="${HOME}/im2txt/data/mscoco"
 
   python3 train.py   --input_file_pattern="${MSCOCO_DIR}/train-?????-of-00256" --inception_checkpoint_file="${INCEPTION_CHECKPOINT}"  --train_dir="${MODEL_DIR}/train" --train_inception=false   --number_of_steps=70000 --rnn_type="lstm"
-
+```
 
 
 # 3. Testing
