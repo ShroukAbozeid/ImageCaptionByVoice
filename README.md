@@ -125,10 +125,7 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
   
   3.2 Test a folder of images
     
-    run run_inference script:
-	  
-    python3 run_inference.py
-    
-    --input_files = “” #the folder directory of the images you want to test
-    --mode = False
-
+   run run_inference script:
+  ```  
+    python3 run_inference.py --input_files = “” #the folder directory of the images you want to test --mode = False
+  ```
