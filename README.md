@@ -63,9 +63,9 @@ Inception-GRU  model: 0.891, 0.241, 0.515, 0.287
  MSCOCO_DIR="${HOME}/im2txt/data/mscoco"
  
  ./download_and_preprocess_mscoco "${MSCOCO_DIR}"
-
- running build_mscoco
   ```
+ running build_mscoco
+
   Note that :
   ```
   train_shards = ( train_dataset size * 5 ) /2300
